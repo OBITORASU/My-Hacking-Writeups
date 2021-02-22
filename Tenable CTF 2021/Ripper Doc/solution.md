@@ -8,7 +8,7 @@ Find the flag in the ripper doc list.
 ## Solution:
 I started off by visiting the site and checking page sources and nothing interesting came up except the flag for a previous challenge :P 
 
-![site](images/site.png)
+![site](images/siteview.png)
 
 There was a link to the Ripper Doc list on the homepage so I decided to give it a try. Come on it wouldn't be that easy would it? I was denied access to the list, it read ```Sorry, gotta be in the club to get this list.``` 
 
