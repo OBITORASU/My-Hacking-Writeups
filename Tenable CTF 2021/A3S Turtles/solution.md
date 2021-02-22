@@ -26,4 +26,4 @@ Upon running the script I had 2 files with me ```message.txt``` and ```key.png``
 
 I went to [cyberchef](https://gchq.github.io/CyberChef/) I selected the AES decrypt recipe and got to work decoding. I entered the key and the binary message in hex format and started tinkering with the different AES encryption modes. I got the flag ```flag{steg0_a3s}``` on ```ECB``` mode and that concluded the challenge for me. 
 
-![A3S Turtles](images/A3S%20Turtles.jpg)
+![A3S Turtles](images/A3S%20Turtles.png)
