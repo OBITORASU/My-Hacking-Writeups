@@ -24,5 +24,5 @@ The pattern of repeating ```FWD:```s and ```RE:```s made me think this might hav
 Using [morse code decoder](https://morsedecoder.com/) I found the flag to be ```FLAG#I_MISS_AO#``` which translated to ```flag{I_MISS_AOL}```
 
 Even after finding the flag I was really curious about the image in the message was, so I decided to figure it out as well and used an online base64 to image [converter](https://codebeautify.org/base64-to-image-converter). The image in the message was:
-![grandma's message](images/Tenable CTF 2021/grandma.jpg)
+![grandma's message](images/grandma.jpg)
 Indeed a very hilarious grandma joke :P
