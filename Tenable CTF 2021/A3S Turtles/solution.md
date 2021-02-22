@@ -3,7 +3,7 @@
 ## Problem worth 250 points under Steganography
 ## Statement:
 Turtles all the way down.
-(We are provided a download link for a cryptic file by the name of turtles128.zip)
+(We were provided a download link for a cryptic file by the name of turtles128.zip)
 
 ## Solution:
 My initial thought was as simple as extracting the zip file and inspecting its contents but I met with a roadblock right at the start, the file was password protected. Well since we were never really provided any hints in the original problem statement I had to resort to brute force to guess the password. In this case, I used a neat tool called fcrackzip, its easily available on kali linux and install with a simple ```sudo apt-get install fcrackzip``` command. Then I started my brute force attack on the zip file and found the password to be a simple 0, the extracted file was yet another ```.zip``` file but this time instead of ```turtles128.zip``` it was ```turtles127.zip```. It became obvious that the real file had been zipped 128 times, I started playing around with the zip files and noticed that the password for the files always ranged between 1s or 0s. This caught my attention very quickly and I had a clear picture of what was going on.The password for the zip files when arranged together makes up a 128 bit long binary message. It was way too much effort manually playing around with the file which had been zipped so many times so I scripted out my work with a simple bash script. 
