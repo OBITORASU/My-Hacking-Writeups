@@ -14,11 +14,11 @@ There was a link to the Ripper Doc list on the homepage so I decided to give it 
 
 ![forbidden page](images/forbidden%20page.png)
 
-Well I wasn't a member of whatever club they were talking about so I had to figure out a way to get my membership. I fired up ```burpsuite``` and started to intercept my HTTP requests. I captured the request for the ripper doc list page and it looked something like this.
+Well I wasn't a member of whatever club they were talking about so I had to figure out a way to get my membership. I fired up ```burpsuite``` and started to intercept my HTTP requests. I captured the request for the ripper doc list page and it looked something like this:
 
 ![unauthenticated](images/unauthenticated.png)
 
-I could clearly see a cookie set to false which resulted in me being flagged outside the club. The simple solution that came to mind was to set the cookie to true and sending the modified request via ```burp repeater```.
+I could clearly see a cookie set to false which resulted in me being flagged outside the club. The simple solution that came to mind was to set the cookie to true and send the modified request via ```burp repeater```.
 
 ![cookies](images/cookies.png)
 
