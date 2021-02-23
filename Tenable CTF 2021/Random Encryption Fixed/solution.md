@@ -61,7 +61,7 @@ The code is fairly simple to understand. In the code, initially a ```flag``` var
 
 Looking at the output we notice that, the particular value of ```rands``` which was used during the ```^``` xor operation to generate ```res``` had been removed from the it. But, luckily we had access to all the seed values in ```seeds``` as well as the values for ```res```. It is well known that once ```random.seed()``` method is called with a seed value, ```random.randint()``` method will always generate the same numbers from a given range and that is the thing we are going to abuse.
 
-I fired up my text editor and wrote a quick script to recreate the values of ```rands``` which were used during the xor operation. After that all I had to do was to xor the known values of ```res``` with the values regenerated for ```rands``` with the same seed values to get back the original flag.
+I fired up my text editor and wrote a quick script to recreate the values of ```rands``` which were used during the xor operation. After that all I had to do was xor the known values of ```res``` with the values regenerated for ```rands``` suing the same seed values, to get back the original flag.
 
 Here is the script I used (I have also uploaded it in the repo itself):
 ```
