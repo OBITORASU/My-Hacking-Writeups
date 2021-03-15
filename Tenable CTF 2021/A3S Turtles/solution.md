@@ -24,6 +24,6 @@ done
 ```
 Upon running the script I had 2 files with me ```message.txt``` and ```key.png``` which had a hexadecimal key in it. I knew exactly what I was dealing with at this point, the binary message we extracted was the encrypted message (our flag in this case) and the key.png was the key to decipher the message. The encryption used was very easy to guess from the name of the challenge, A3S is very close to AES just in l33t :P
 
-I went to [cyberchef](https://gchq.github.io/CyberChef/) I selected the AES decrypt recipe and got to work decoding. I entered the key and the binary message in hex format and started tinkering with the different AES encryption modes. I got the flag ```flag{steg0_a3s}``` on ```ECB``` mode and that concluded the challenge for me. 
+I went to [cyberchef](https://gchq.github.io/CyberChef/) I selected the AES decrypt recipe and got to work decoding. I entered the key and the binary message in hex format and started tinkering with the different AES encryption modes. I got the flag ```flag{steg0_a3s}``` on ```ECB``` mode and that concluded the challenge for me. **NOTE:** IV value was not required for the decryption.
 
 ![A3S Turtles](images/A3S%20Turtles.png)
