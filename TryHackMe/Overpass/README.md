@@ -76,7 +76,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 2021/04/16 10:46:14 Finished
 ===============================================================
 ```
-What particularly seemed interesting from the gobsuter results were `login.js` and the admin login panel at `/admin`. Regardless, I went on to the website and started looking around manually. It looked something like:
+What particularly seemed interesting from the gobsuter results were `login.js` and the admin login panel at `/admin`. Regardless, I went on to the website and started looking around manually. It looked something like this:
 
 ![home page](images/home.png) 
 
@@ -89,7 +89,7 @@ I moved on to the downloads section which had some interesting stuff going on wi
 ![download page](images/downloads.png)
 
 The source code for the binary seemed awfully interesting but on manual review, nothing seemed off about it except the fact that it was using ROT47 in the name of military grade encryption LOL.
-Since, nothing seemed off uptil now, I went on to the more interesting parts namely the `login.js` file. On a closer inspection I found a vulnerable function.
+Since nothing seemed off uptil now, I went on to the more interesting parts namely the `login.js` file. On a closer inspection I found a vulnerable function.
 
 ![login.js](images/login.png)
 
@@ -112,7 +112,7 @@ async function login() {
     }
 }
 ```
-We can bypass the if check easily by using an HTTP proxy like `BurpSuite`. So, naturally I opened up BurpSuite and intercepted the request for the login on `/admin`, then I had to intercept the response by setting capture response to request to true.
+We can bypass the `if` check easily by using an HTTP proxy like `BurpSuite`. So, naturally I opened up BurpSuite and intercepted the request for the login on `/admin`, then I had to intercept the response by setting capture response to request to true.
 
 ![capture response](images/burp.png)
 
