@@ -89,7 +89,7 @@ I moved on to the downloads section which had some interesting stuff going on wi
 ![download page](images/downloads.png)
 
 The source code for the binary seemed awfully interesting but on manual review, nothing seemed off about it except the fact that it was using ROT47 in the name of military grade encryption LOL.
-Since nothing seemed off uptil now, I went on to the more interesting parts namely the `login.js` file. On a closer inspection I found a vulnerable function.
+Since nothing seemed off uptil now, I went on to the more concerning parts namely the `login.js` file. Upon a closer inspection I found a vulnerable function in `login.js`.
 
 ![login.js](images/login.png)
 
@@ -116,7 +116,7 @@ We can bypass the `if` check easily by using an HTTP proxy like `BurpSuite`. So,
 
 ![capture response](images/burp.png)
 
-Now the fun begins, simply removing the `Incorrect Credentials` would bypass the check in the login function above. And that is exactly what I did.
+Now the fun begins, simply removing the `Incorrect Credentials` would allow us bypass the check in the login function above. And that is exactly what I did.
 
 ![incorrect credentials](images/inc%20cred.png)
 ![no credential](images/no%20cred.png)
