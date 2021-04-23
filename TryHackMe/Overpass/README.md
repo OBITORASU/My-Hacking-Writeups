@@ -93,7 +93,7 @@ Since nothing seemed off uptil now, I went on to the more concerning parts namel
 
 ![login.js](images/login.png)
 
-Look at:
+Do you see it? Look at:
 ```
 async function login() {
     const usernameBox = document.querySelector("#username");
@@ -116,7 +116,7 @@ We can bypass the `if` check easily by using an HTTP proxy like `BurpSuite`. So,
 
 ![capture response](images/burp.png)
 
-Now the fun begins, simply removing the `Incorrect Credentials` would allow us bypass the check in the login function above. And that is exactly what I did.
+Simply removing the `Incorrect Credentials` would allow us bypass the check in the login function above. And that is exactly what I did.
 
 ![incorrect credentials](images/inc%20cred.png)
 ![no credential](images/no%20cred.png)
@@ -125,7 +125,7 @@ I refreshed the page after this and I had successfully bypassed the login. The n
 
 ![RSA Key](images/RSA.png)
 
-I copied the key and saved it in a file. I ran `chmod 600` on the file to give it the proper permissions. Now I had to crack the passphrase for the key. I achieved this buy using `ssh2john` and `johntheripper`. First I ran `ssh2john RSA > johnrsa` and then I ran `john --wordlist=/usr/share/wordlists/rockyou.txt johnrsa`. The cracked passphrase turned out to be `james13`, and with this credential I was successfully able to connect to the box by running `ssh -i RSA james@10.10.38.213`. 
+I copied the key and saved it in a file. I ran `chmod 600` on the file to give it the proper permissions. Now I had to crack the passphrase for the key. I achieved this buy using `ssh2john` and `johntheripper`. First I ran `ssh2john RSA > johnrsa` and then I ran `john --wordlist=/usr/share/wordlists/rockyou.txt johnrsa`. The cracked passphrase turned out to be `james13`, and with this credential I was successfully able to ssh into the box by running `ssh -i RSA james@10.10.38.213` and supplying the password. 
 
 ![user shell via ssh](images/user%20shell.png)
 
