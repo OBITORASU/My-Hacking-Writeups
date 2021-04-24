@@ -138,11 +138,11 @@ Upon running `linpeas.sh` a peculiar cron job came under my attention.
 
 ![cron job](images/cron.png)
 
-This job was running every mintue with root privileges, it was basically downloading a file present in the given path `overpass.thm/downloads/src/buildscript.sh` and piping it to bash. The cherry on top was the file used to resolve a particular ip to `overpass.thm` namely the `/etc/hosts` file was writeable by the user according to linpeas.sh.
+This job was running every mintue with root privileges, it was basically downloading a file present in the given path `overpass.thm/downloads/src/buildscript.sh` and piping it to bash. The cherry on top was the file used to resolve a particular IP address to `overpass.thm` namely the `/etc/hosts` file was writeable by the current user according to linpeas.sh.
 
 ![/etc/hosts](images/etc.png)
 
-So I opened up the `hosts` file and made it so that `overpass.thm` resolved to my `tun0` ip (openvpn ip).
+So I opened up the `hosts` file and made it so that `overpass.thm` resolved to my `tun0` IP (OpenVPN IP).
 
 ![edit](images/edit.png)
 
