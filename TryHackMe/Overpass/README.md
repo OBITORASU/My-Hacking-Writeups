@@ -1,4 +1,4 @@
-Recently, I decided to give the Overpass box a tr on TryHackMe since it was on my bucketlist for a while. This is my writeup for the particular box.
+Recently, I decided to give the Overpass box a try on TryHackMe since it was on my bucketlist for a while. This is my writeup for the particular box.
 I started my testing with a simple nmap scan using:
 `nmap -sC -sV -oN nmapscan.txt 10.10.38.213 -v`
 Here is the output of the nmap scan:
@@ -29,7 +29,7 @@ Read data files from: /usr/bin/../share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 # Nmap done at Fri Apr 16 10:46:06 2021 -- 1 IP address (1 host up) scanned in 21.95 seconds
 ```
-The box looked relatively simple with port 22 open for ssh and port 80 open for HTTP traffic. I decided to enumerate the website running on port 80. I left gobuster running on the background busting through all the sub-directories while I manually checked the website. For gobsuter I used:
+The box looked relatively simple with port 22 open for ssh and port 80 open for HTTP traffic. I decided to enumerate the website running on port 80. I left gobuster running on the background busting through all the sub-directories, while I manually looked around the website. For gobsuter I used the following command:
 `gobuster dir -u http://10.10.38.213/ -t 100 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x .txt,.html,.php,.js`
 The output for the above command was:
 ```
@@ -76,7 +76,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 2021/04/16 10:46:14 Finished
 ===============================================================
 ```
-What particularly seemed interesting from the gobsuter results were `login.js` and the admin login panel at `/admin`. Regardless, I went on to the website and started looking around manually. It looked something like:
+What particularly seemed interesting from the gobsuter results were `login.js` and the admin login panel at `/admin`. Regardless, I went on to the website and took a look. It looked something like this:
 
 ![home page](images/home.png) 
 
@@ -89,11 +89,11 @@ I moved on to the downloads section which had some interesting stuff going on wi
 ![download page](images/downloads.png)
 
 The source code for the binary seemed awfully interesting but on manual review, nothing seemed off about it except the fact that it was using ROT47 in the name of military grade encryption LOL.
-Since, nothing seemed off uptil now, I went on to the more interesting parts namely the `login.js` file. On a closer inspection I found a vulnerable function.
+Since nothing seemed off uptil now, I went on to the more concerning parts namely the `login.js` file. Upon a closer inspection I found a vulnerable function in `login.js`.
 
 ![login.js](images/login.png)
 
-Look at:
+Do you see it? Look at:
 ```
 async function login() {
     const usernameBox = document.querySelector("#username");
@@ -112,11 +112,11 @@ async function login() {
     }
 }
 ```
-We can bypass the if check easily by using an HTTP proxy like `BurpSuite`. So, naturally I opened up BurpSuite and intercepted the request for the login on `/admin`, then I had to intercept the response by setting capture response to request to true.
+We can bypass the `if` check easily by using an HTTP proxy like `BurpSuite`. So, naturally I opened up BurpSuite and intercepted the request for the login on `/admin`, then I had to intercept the response by setting capture response to request to true.
 
 ![capture response](images/burp.png)
 
-Now the fun begins, simply removing the `Incorrect Credentials` would bypass the check in the login function above. And that is exactly what I did.
+Simply removing the `Incorrect Credentials` would allow us bypass the check in the login function above. And that is exactly what I did.
 
 ![incorrect credentials](images/inc%20cred.png)
 ![no credential](images/no%20cred.png)
@@ -125,7 +125,7 @@ I refreshed the page after this and I had successfully bypassed the login. The n
 
 ![RSA Key](images/RSA.png)
 
-I copied the key and saved it in a file. I ran `chmod 600` on the file to give it the proper permissions. Now I had to crack the passphrase for the key. I achieved this buy using `ssh2john` and `johntheripper`. First I ran `ssh2john RSA > johnrsa` and then I ran `john --wordlist=/usr/share/wordlists/rockyou.txt johnrsa`. The cracked passphrase turned out to be `james13`, and with this credential I was successfully able to connect to the box by running `ssh -i RSA james@10.10.38.213`. 
+I copied the key and saved it in a file. I ran `chmod 600` on the file to give it the proper permissions. Now I had to crack the passphrase for the key. I achieved this buy using `ssh2john` and `johntheripper`. First I ran `ssh2john RSA > johnrsa` and then I ran `john --wordlist=/usr/share/wordlists/rockyou.txt johnrsa`. The cracked passphrase turned out to be `james13`, and with this credential I was successfully able to ssh into the box by running `ssh -i RSA james@10.10.38.213` and supplying the password. 
 
 ![user shell via ssh](images/user%20shell.png)
 
@@ -138,11 +138,11 @@ Upon running `linpeas.sh` a peculiar cron job came under my attention.
 
 ![cron job](images/cron.png)
 
-This job was running every mintue with root privileges, it was basically downloading a file present in the given path `overpass.thm/downloads/src/buildscript.sh` and piping it to bash. The cherry on top was the file used to resolve a particular ip to `overpass.thm` namely the `/etc/hosts` file was writeable by the user according to linpeas.sh.
+This job was running every mintue with root privileges, it was basically downloading a file present in the given path `overpass.thm/downloads/src/buildscript.sh` and piping it to bash. The cherry on top was the file used to resolve a particular IP address to `overpass.thm` namely the `/etc/hosts` file was writeable by the current user according to linpeas.sh.
 
 ![/etc/hosts](images/etc.png)
 
-So I opened up the `hosts` file and made it so that `overpass.thm` resolved to my `tun0` ip (openvpn ip).
+So I opened up the `hosts` file and made it so that `overpass.thm` resolved to my `tun0` IP (OpenVPN IP).
 
 ![edit](images/edit.png)
 
