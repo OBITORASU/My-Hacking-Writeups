@@ -146,7 +146,7 @@ So I opened up the `hosts` file and made it so that `overpass.thm` resolved to m
 
 ![edit](images/edit.png)
 
-Now I went into the directory where I had the python http server running and recreated the path in the job namely `/downloads/src`. In there I made my own malicious `buildscript.sh` with the following code:
+Now I went into the directory where I had the python http server running and recreated the path in the job namely `/downloads/src`. In the context of the path, I made my own malicious `buildscript.sh` with the following code:
 ```
 #!/bin/bash
 chmod +s /bin/bash
