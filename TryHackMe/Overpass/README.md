@@ -29,7 +29,7 @@ Read data files from: /usr/bin/../share/nmap
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 # Nmap done at Fri Apr 16 10:46:06 2021 -- 1 IP address (1 host up) scanned in 21.95 seconds
 ```
-The box looked relatively simple with port 22 open for ssh and port 80 open for HTTP traffic. I decided to enumerate the website running on port 80. I left gobuster running on the background busting through all the sub-directories, while I manually looked around the website. For gobsuter I used the following command:
+The box looked relatively simple with port 22 open for SSH connections and port 80 open for HTTP traffic. I decided to enumerate the website running on port 80 since SSH is not a great target to start with. I left gobuster running on the background busting through all the sub-directories, while I manually looked around the website. For gobsuter I used the following command:
 `gobuster dir -u http://10.10.38.213/ -t 100 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x .txt,.html,.php,.js`
 The output for the above command was:
 ```
