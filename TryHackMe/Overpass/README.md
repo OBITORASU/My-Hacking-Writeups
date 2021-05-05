@@ -129,7 +129,7 @@ I copied the key and saved it in a file. I ran `chmod 600` on the file to give i
 
 ![user shell via ssh](images/user%20shell.png)
 
-SSH gave me the initial user shell but the real fun began with privilege escalation. Manually looking around seemed redundant at first glance, so I grabbed a copy of `linpeas.sh` and served it to the box using a `python http.server`.
+SSH gave me the initial user shell but the real fun began with privilege escalation. Manually looking around seemed redundant at first glance, so I grabbed a copy of `linpeas.sh` and served it to the box using a `python -m http.server 80`.
 
 ![http server](images/http.png) 
 ![linpeas](images/linpeas.png)
