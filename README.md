@@ -1,4 +1,4 @@
-# My Collection of CTF and Vulnerable box writeups
+# My Collection of CTF and boot2root box writeups
 
 ## Description 
 This is a collection of some of the interesting challenges I came accross in the CTF events I participated in as well as all the boot2root boxes I have solved on platforms like TryHackMe and HackTheBox. Hopefully I will keep updating this repository with new content for every new event I attend or box I solve. 
