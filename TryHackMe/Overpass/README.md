@@ -112,7 +112,7 @@ async function login() {
     }
 }
 ```
-We can bypass the `if` check easily by using an HTTP proxy like `BurpSuite`. So, naturally I opened up BurpSuite and intercepted the request for the login on `/admin`, then I had to intercept the response by setting capture response to request to true.
+We can bypass the `if` check easily by using an HTTP proxy like `BurpSuite`. So, naturally I opened up BurpSuite and intercepted the request for the login on `/admin`, then I had to intercept the response by setting capture response to this request to true.
 
 ![capture response](images/burp.png)
 
