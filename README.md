@@ -8,6 +8,6 @@ Documenting my progress is the clear goal and motivation behind me creating this
 
 
 ## What I provide in this repository?
-I will try my best to provide links to all the tools and websites I have used while solving CTF challenges/vulnerable boxes. Additionally, I will also provide the scripts I used during the event along with screenshots to make the writeups more lively and easily understandable for anyone reading.
+I will try my best to provide links to all the tools and websites I have used while solving CTF challenges/vulnerable boxes. Additionally, I will also provide the scripts I used during the event along with screenshots to make the writeups more lively and easily understandable for anyone reading it.
 
 
