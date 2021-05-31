@@ -3,7 +3,7 @@
 ## Problem worth 100 points under Misc
 ## Statement:
 My grandma sent me this email, but it looks like there's a hidden message in it. Can you help me figure it out?
-(We were provided a download link for an .eml file)
+(We were provided with a download link for a .eml file)
 
 ## Solution:
 Upon downloading the file, I opened it up using a text editor and was overwhelmed by its content. It contained a sweet ```thinking of you``` message from grandma and an attachment which was a base64 encoded jpg image (this made the file too large to read), but the most interesting part was the subject line, it looked something like this:
