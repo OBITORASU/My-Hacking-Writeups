@@ -80,7 +80,7 @@ What particularly seemed interesting from the gobsuter results were `login.js` a
 
 ![home page](images/home.png) 
 
-The about page had some interesting names but nothing more than that: 
+The about page had some interesting names which could potentially have been used as usernames for authentication later on, but aside from that nothing really caught my eye on this page: 
 
 ![about page](images/about.png)
 
