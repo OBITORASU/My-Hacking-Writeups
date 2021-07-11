@@ -6,7 +6,7 @@ Find the flag in the ripper doc list.
 (We were provided with a link to the site which contains the list.)
 
 ## Solution:
-I started off by visiting the site and checking page sources and nothing interesting came up except the flag for a previous challenge :P 
+I started off by visiting the site and checking page sources, but nothing interesting came up except the flag for a previous challenge :P 
 
 ![site](images/siteview.png)
 
