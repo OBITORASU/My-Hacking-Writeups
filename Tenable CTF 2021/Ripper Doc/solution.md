@@ -10,7 +10,7 @@ I started off by visiting the site and checking page sources, but nothing intere
 
 ![site](images/siteview.png)
 
-There was a link to the Ripper Doc list on the homepage so I decided to give it a try. Come on it wouldn't be that easy would it? I was denied access to the list, it read ```Sorry, gotta be in the club to get this list.``` 
+There was a link to the Ripper Doc list on the homepage so I decided to give it a try. Come on it wouldn't be that easy now would it? I was denied access to the list, it read ```Sorry, gotta be in the club to get this list.``` 
 
 ![forbidden page](images/forbidden%20page.png)
 
