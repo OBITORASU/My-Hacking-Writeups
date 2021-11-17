@@ -1,4 +1,4 @@
-Recently, I decided to give the Overpass box a try on TryHackMe since it was on my bucketlist for a while. This is my writeup for the particular box.
+Recently, I decided to give the Overpass box a try on TryHackMe as it has been on my bucketlist for a quite while now. This is my writeup for the particular box.
 I started my testing with a simple nmap scan using:
 `nmap -sC -sV -oN nmapscan.txt 10.10.38.213 -v`
 Here is the output of the nmap scan:
